@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TeamController!
+{% endblock %}
+
+{% block content %}
+
+	<br>
+	<br>
+
+	{% for i in dataclub %}
+		<p class="b" style="color: #4B0082 ; padding-left: 3.2em; font-size:35px">
+			<b>{{i.name}}</b>
+		</p>
+		<img style=" display:inline-block ; vertical-align:top; padding-left: 3em;" src="{{ i.logo }}" width="400" height="350">
+		<div style="margin-top:30px; display:inline-block;color: #00008B ; padding-left: 3em; font-size:23px">
+			<p>
+				Foundation :
+				<b>{{ i.fondation.format('d/m/Y') }}</b>
+
+			</p>
+			<p>
+				President :
+				<b style="text-transform:uppercase">{{ i.president }}</b>
+
+			</p>
+			<p>
+				Manager :
+				<b>{{ i.entraineur }}</b>
+
+			</p>
+			<p>
+				Colors :
+				<b>{{ i.couleurs }}</b>
+
+			</p>
+			<p>
+				Ground :
+				<b>{{ i.stade }}</b>
+
+			</p>
+		</div>
+
+	{% endfor %}
+	<br>
+	<br><br>
+	<br>
+	<h2 style="color: #8B008B ; padding-left: 0.5em; background-color: bisque;">
+		<b>
+			League and cup trophies
+		</b>
+
+	</h2>
+	<br>
+	{% for title in clubtitles %}
+		<p style="padding-left: 2em;">
+			<img src="{{ title.titlephoto }}" width="50" height="50">
+
+			<b style="padding-left: 0.5em">
+				{{title.titlename}}
+				:
+			</b>
+			{{title.numberoftitles}}
+
+		</p>
+	{% endfor %}
+	<br>
+	<h2 style="color: #8B008B ; padding-left: 0.5em; background-color: bisque;">
+		<b>
+			Players
+		</b>
+
+	</h2>
+	<br>
+	{% for i in dataplayers %}
+		{% if (i.position != '_') and (i.position != 'Manager') %}
+
+			<b style="padding-left: 1em;text-transform:uppercase; color: #00008B">-
+				{{i.firstname}}
+				{{i.lastname}}</b>
+		{% endif %}
+
+	{% endfor %}
+{% endblock %}

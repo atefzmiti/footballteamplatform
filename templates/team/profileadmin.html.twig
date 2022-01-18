@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+
+
+	<br>
+	<div style="display:inline-block ; vertical-align:top; padding-left: 60em;;">
+		<button type="button" onclick="document.location.href={{ path('user_index') }}" class="btn btn-outline-primary">Manage players</button>
+
+
+		<button type="button" onclick="document.location.href={{ path('palmares_index') }}" class="btn btn-outline-primary">Manage trophies</button>
+
+	</div>
+
+	<p style="color: #8A2BE2 ; padding-left: 6.5em; font-size:25px">
+		<span style="text-transform:uppercase">
+			{{ fname}}
+			<b>{{ lname }}</b>
+		</span>
+	</p>
+
+	<img style=" display:inline-block ; vertical-align:top; padding-left: 3em;" src="{{ photo }}" width="500" height="350">
+	<br>
+	<br>
+	<div style="margin-top:30px; display:inline-block;color: #00008B ; padding-left: 3em; font-size:18px">
+
+		<p>
+
+			Age :
+			<b>
+				{{ age }}</b>
+		</p>
+
+		Position :
+		<b>
+			{{ position }}</b>
+	</p>
+	<p>
+
+		Nationality :
+		<b>
+			{{ nationality }}</b>
+	</p>
+	<p>Contract signing date :
+		<b>{{ csd.format('d/m/Y') }}</b>
+	</p>
+	<p>Contract end date :
+		<b>{{ ced.format('d/m/Y') }}</b>
+	</p>
+	<p>Username :
+		<b>{{ username }}</b>
+	</p>
+
+</div>
+
+<br>{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block content %}
+
+	{% for msg in app.flashes('notice') %}
+		<div class="alert alert-success">
+			<center>{{msg}}</center>
+		</div>
+	{% endfor %}
+	<br>
+	<br>
+	<div>
+		<center>
+			<h1 style='color:#00008B;'>Register player</h1>
+		</center>
+	</div>
+	<br><br>
+
+	{{ form_start(registrationForm) }}
+	{{ form_row(registrationForm.firstname, {
+            label: 'First name : ','attr': {'placeholder': 'player first name ...'}
+        }) }}
+	{{ form_row(registrationForm.lastname, {
+            label: 'Last name','attr': {'placeholder': 'player last name ...'}
+        }) }}
+	{{ form_row(registrationForm.email, {label: 'Email : ' ,'attr': {'placeholder': 'player email address ...'}}) }}
+	{{ form_row(registrationForm.plainPassword, {
+            label: 'Password : ','attr': {'placeholder': 'player password ...'}
+        }) }}
+
+	{{ form_row(registrationForm.age, {
+            label: 'Age : ','attr': {'placeholder': 'player age ...'}
+        }) }}
+
+	{{ form_row(registrationForm.username, {
+            label: 'Username : ','attr': {'placeholder': 'player username  ...'}
+        }) }}
+	{{ form_row(registrationForm.height, {
+            label: 'Height (m): ' ,'attr': {'placeholder': 'player height ...'}
+        }) }}
+	{{ form_row(registrationForm.position, {
+            label: 'Position','attr': {'placeholder': 'player position ..'}
+        }) }}
+	{{ form_row(registrationForm.nationality, {
+            label: 'Nationality :','attr': {'placeholder': 'player nationality ...'}
+        }) }}
+
+	{{ form_row(registrationForm.contract_signing_date ,
+	 {label: 'Contract signing date : ','attr': {'placeholder': 'He signed in ..'} })
+	}}
+	{{ form_row(registrationForm.contract_end_date ,
+	 {label: 'Contract end date : ','attr': {'placeholder': 'Until ..'} })
+	}}
+	{{ form_row(registrationForm.salary, {label: 'Salary/week : ' ,'attr': {'placeholder': 'salary per week ...'}}) }}
+
+
+	{{ form_row(registrationForm.goals, 
+	{label: 'Goals : ' ,'attr': {'placeholder': 'Goals ..'}}) }}
+	{{ form_row(registrationForm.goals_conceded,
+	 {label: 'Goals conceded : ' ,'attr': {'placeholder': 'goals conceded  ..'}}) }}
+	{{ form_row(registrationForm.photo,
+	 {label: 'Photo : ' ,'attr': {'placeholder': 'profile photo ..'}}) }}
+	{{ form_row(registrationForm.matchsjoues,
+	 {label: 'Matchs played : ','attr': {'placeholder': ' matchs played ..'} }) }}
+
+	{{ form_row(registrationForm.agreeTerms) }}
+	<button type="submit" class="btn">Register player</button>
+	{{ form_end(registrationForm) }}
+	<div>
+		<a href="{{ path('user_index') }}">Show all players details</a>
+	</div>
+{% endblock %}

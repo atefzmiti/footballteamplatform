@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+
+	<br>
+	<br>
+	<h1>
+		<center>Oops!</center>
+	</h1>
+	<h2>
+		<center>You don't have permission to access this page !</center>
+	</h2>
+	<br><br>
+	<center>
+		<button type="button" onclick="window.location.href='{{ path('club') }}'" class="btn btn-outline-primary">Back to home</button>
+	</center>
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index
+{% endblock %}
+
+{% block content %}
+	<br>
+	<h1 style="padding-left: 1em;color: #8B008B">Players details</h1>
+	<br>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Email</th>
+				<th>Username</th>
+				<th>Hashed Password</th>
+				<th>Age</th>
+				<th>Height</th>
+				<th>Nationality</th>
+				<th>Position</th>
+				<th>Contract_signing_date</th>
+				<th>Contract_end_date</th>
+				<th>Salary</th>
+				<th>Goals</th>
+				<th>Goals_conceded</th>
+				<th>Photo</th>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.id }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.username }}</td>
+					<td>{{ user.password }}</td>
+					<td>{{ user.age }}</td>
+					<td>{{ user.height }}</td>
+					<td>{{ user.nationality }}</td>
+					<td>{{ user.position }}</td>
+					<td>{{ user.contractSigningDate ? user.contractSigningDate|date('Y-m-d') : '' }}</td>
+					<td>{{ user.contractEndDate ? user.contractEndDate|date('Y-m-d') : '' }}</td>
+					<td>{{ user.salary }}</td>
+					<td>{{ user.goals }}</td>
+					<td>{{ user.goalsConceded }}</td>
+					<td>{{ user.photo }}</td>
+					<td>{{ user.firstname }}</td>
+					<td>{{ user.lastname }}</td>
+
+					<td>
+						<a href="{{ path('user_show', {'username': user.username}) }}">show</a>
+						<a href="{{ path('user_edit', {'username': user.username}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="17">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<button type="button" onclick="window.location.href='{{ path('user_new') }}'" class="btn btn-outline-primary">Add new player</button>
+
+{% endblock %}

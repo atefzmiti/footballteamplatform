@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Palmares
+{% endblock %}
+
+{% block content %}
+	<br>
+	<h1 style="color: #8B008B">Edit title details</h1>
+	<br>
+	{{ include('palmares/_form.html.twig', {'button_label': 'Update'}) }}
+	<br>
+	<a href="{{ path('palmares_index') }}">back to trophies list
+	</a>
+	<br>
+	{{ include('palmares/_delete_form.html.twig') }}
+{% endblock %}

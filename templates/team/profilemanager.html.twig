@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+
+
+	<br>
+
+
+	<p style="color: #8A2BE2 ; padding-left: 6.5em; font-size:25px">
+		<span style="text-transform:uppercase">
+			{{ fname}}
+			<b>{{ lname }}</b>
+		</span>
+	</p>
+
+	<img style=" display:inline-block ; vertical-align:top; padding-left: 3em;" src="{{ photo }}" width="500" height="400">
+	<br>
+	<br>
+	<div style="margin-top:30px; display:inline-block;color: #00008B ; padding-left: 3em; font-size:18px">
+
+		<p>
+
+			Age :
+			<b>
+				{{ age }}</b>
+		</p>
+
+		Position :
+		<b>
+			{{ position }}</b>
+	</p>
+	<p>
+
+		Nationality :
+		<b>
+			{{ nationality }}</b>
+	</p>
+	<p>Contract signing date :
+		<b>{{ csd.format('d/m/Y') }}</b>
+	</p>
+	<p>Contract end date :
+		<b>{{ ced.format('d/m/Y') }}</b>
+	</p>
+
+
+</div>
+
+<br>{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User
+{% endblock %}
+
+{% block content %}
+	<br>
+	<h1 style=" padding-left: 1em;color: #8B008B">Edit player</h1>
+	<br>
+
+	{{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+
+	<a href="{{ path('user_index') }}">back to list</a>
+
+	{{ include('user/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+
+
+	<br>
+
+
+	<p style="color: #8A2BE2 ; padding-left: 4.5em; font-size:25px">
+		<span style="text-transform:uppercase">
+			{{ fname}}
+			<b>{{ lname }}</b>
+		</span>
+	</p>
+
+	<img style=" display:inline-block ; vertical-align:top; padding-left: 3em;" src="{{ photo }}" width="500" height="300">
+	<br>
+	<br>
+	<div style="margin-top:30px; display:inline-block;color: #00008B ; padding-left: 3em; font-size:18px">
+
+		<p>
+
+			Age :
+			<b>
+				{{ age }}</b>
+		</p>
+
+		Position :
+		<b>
+			{{ position }}</b>
+	</p>
+	<p>
+
+		Nationality :
+		<b>
+			{{ nationality }}</b>
+	</p>
+
+
+	<p>Contract signing date :
+		<b>{{ csd.format('d/m/Y') }}</b>
+	</p>
+	<p>Contract end date :
+		<b>{{ ced.format('d/m/Y') }}</b>
+	</p>
+
+	<p>
+
+		Height :
+		<b>
+			{{ height }}</b>
+	</p>
+	<p>
+
+		Goals
+		<img src="https://cdn-icons-png.flaticon.com/512/26/26356.png" width="17" height="17">
+		:
+
+		<b>
+			{{ goals }}</b>
+
+	</p>
+	<p>
+		Performance :
+		{% if b == 0 %}
+			{{ performance }}
+		{% else %}
+			{% if (position=='goalkeeper') or (position=='center back') or (position=='center midfielder') %}
+				{% if divisiongc <= 0.4 %}
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&star;</span>
+				{% elseif divisiongc <= 0.8 %}
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&star;</span>
+					<span style="font-size:120%;color:blue;">&star;</span>
+				{% else %}
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&star;</span>
+					<span style="font-size:120%;color:blue;">&star;</span>
+					<span style="font-size:120%;color:blue;">&star;</span>
+				{% endif %}
+
+			{% else %}
+				{% if division >= 0.7 %}
+
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+
+				{% elseif division > 0.4 %}
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&star;</span>
+					<span style="font-size:120%;color:blue;">&star;</span>
+				{% else %}
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&bigstar;</span>
+					<span style="font-size:120%;color:blue;">&star;</span>
+					<span style="font-size:120%;color:blue;">&star;</span>
+					<span style="font-size:120%;color:blue;">&star;</span>
+				{% endif %}
+			{% endif %}
+		{% endif %}
+	</p>
+
+</div>
+
+<br>{% endblock %}

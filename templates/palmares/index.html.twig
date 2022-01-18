@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Palmares index
+{% endblock %}
+
+{% block content %}
+	<br>
+	<h1 style="padding-left: 1em;color: #8B008B">League and cup trophies</h1>
+	<br>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Titlename</th>
+				<th>Number_of_titles</th>
+				<th>Title_photo</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for palmare in palmares %}
+				<tr>
+					<td>{{ palmare.id }}</td>
+					<td>{{ palmare.titlename }}</td>
+					<td>{{ palmare.numberOfTitles }}</td>
+					<td>{{ palmare.titlePhoto }}</td>
+					<td>
+						<a href="{{ path('palmares_show', {'id': palmare.id}) }}">show</a>
+						<a href="{{ path('palmares_edit', {'id': palmare.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<button type="button" onclick="window.location.href='{{ path('palmares_new') }}'" class="btn btn-outline-primary">Add new title</button>
+
+{% endblock %}

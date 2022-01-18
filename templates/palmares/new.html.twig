@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add titles
+{% endblock %}
+
+{% block content %}
+	<br>
+	{% for msg in app.flashes('notice') %}
+		<div class="alert alert-success">
+			{{msg}}
+		</div>
+	{% endfor %}
+	<br>
+	<h1 style="color: #8B008B">Add title</h1>
+	<br>
+	{{ include('palmares/_form.html.twig') }}
+	<br>
+	<a href="{{ path('palmares_index') }}">back to titles list</a>
+{% endblock %}

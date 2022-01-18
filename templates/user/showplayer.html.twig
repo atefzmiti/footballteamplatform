@@ -1,0 +1,140 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User
+{% endblock %}
+
+{% block content %}
+	<br>
+	<h1 style=" padding-left: 1em;color: #8B008B ;text-transform:capitalize;">{{ user.firstname }}
+		{{ user.lastname }}</h1>
+	<br>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Username</th>
+				<td>{{ user.username }}</td>
+			</tr>
+			<tr>
+				<th>Id</th>
+				<td>{{ user.id }}</td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>{{ user.email }}</td>
+			</tr>
+
+
+			<tr>
+				<th>Password</th>
+				<td>{{ user.password }}</td>
+			</tr>
+			<tr>
+				<th>Age</th>
+				<td>{{ user.age }}</td>
+			</tr>
+			<tr>
+				<th>Height</th>
+				<td>{{ user.height }}</td>
+			</tr>
+			<tr>
+				<th>Nationality</th>
+				<td>{{ user.nationality }}</td>
+			</tr>
+			<tr>
+				<th>Position</th>
+				<td>{{ user.position }}</td>
+			</tr>
+			<tr>
+				<th>Contract_signing_date</th>
+				<td>{{ user.contractSigningDate ? user.contractSigningDate|date('Y-m-d') : '' }}</td>
+			</tr>
+			<tr>
+				<th>Contract_end_date</th>
+				<td>{{ user.contractEndDate ? user.contractEndDate|date('Y-m-d') : '' }}</td>
+			</tr>
+			<tr>
+				<th>Salary</th>
+				<td>{{ user.salary }}</td>
+			</tr>
+			<tr>
+				<th>Goals</th>
+				<td>{{ user.goals }}</td>
+			</tr>
+			<tr>
+				<th>Goals_conceded</th>
+				<td>{{ user.goalsConceded }}</td>
+			</tr>
+			<tr>
+				<th>Photo</th>
+				<td>{{ user.photo }}</td>
+			</tr>
+			<tr>
+				<th>Firstname</th>
+				<td>{{ user.firstname }}</td>
+			</tr>
+			<tr>
+				<th>Lastname</th>
+				<td>{{ user.lastname }}</td>
+			</tr>
+			<tr>
+				<th>Performance</th>
+				<td>
+					{% if (user.position=='President') or (user.position=='Manager') %}
+						<span style="font-size:120%;color:blue;">&bigstar;</span>
+						<span style="font-size:120%;color:blue;">&bigstar;</span>
+						<span style="font-size:120%;color:blue;">&bigstar;</span>
+						<span style="font-size:120%;color:blue;">&bigstar;</span>
+						<span style="font-size:120%;color:blue;">&bigstar;</span>
+					{% else %}
+
+
+						{% if b == 0 %}
+							{{ user.performance }}
+						{% else %}
+							{% if (user.position=='goalkeeper') or (user.position=='center back') or (user.position=='center midfielder') %}
+								{% if divisiongc <= 0.4 %}
+									<span style="font-size:120%;color:blue;">&bigstar;</span>
+									<span style="font-size:120%;color:blue;">&bigstar;</span>
+									<span style="font-size:120%;color:blue;">&bigstar;</span>
+									<span style="font-size:120%;color:blue;">&bigstar;</span>
+									<span style="font-size:120%;color:blue;">&star;</span>
+								{% elseif divisiongc <= 0.8 %}
+									<span style="font-size:120%;color:blue;">&bigstar;</span>
+									<span style="font-size:120%;color:blue;">&bigstar;</span>
+									<span style="font-size:120%;color:blue;">&bigstar;</span>
+									<span style="font-size:120%;color:blue;">&star;</span>
+									<span style="font-size:120%;color:blue;">&star;</span>
+								{% else %}
+									<span style="font-size:120%;color:blue;">&bigstar;</span>
+									<span style="font-size:120%;color:blue;">&bigstar;</span>
+									<span style="font-size:120%;color:blue;">&star;</span>
+									<span style="font-size:120%;color:blue;">&star;</span>
+									<span style="font-size:120%;color:blue;">&star;</span>
+								{% endif %}
+
+							{% else %}
+								{% if division >= 0.7 %}
+
+									{% elseif division >= 0.7 %}
+										<span style="font-size:120%;color:blue;">&bigstar;</span>
+										<span style="font-size:120%;color:blue;">&bigstar;</span>
+										<span style="font-size:120%;color:blue;">&bigstar;</span>
+										<span style="font-size:120%;color:blue;">&bigstar;</span>
+										<span style="font-size:120%;color:blue;">&bigstar;</span>
+
+									{% elseif division > 0.4 %}
+										<span style="font-size:120%;color:blue;">&bigstar;</span>
+										<span style="font-size:120%;color:blue;">&bigstar;</span>
+										<span style="font-size:120%;color:blue;">&bigstar;</span>
+										<span style="font-size:120%;color:blue;">&star;</span>
+										<span style="font-size:120%;color:blue;">&star;</span>
+								{% endif %}
+							{% endif %}
+						{% endif %}
+					{% endif %}
+				</td>
+			</tr>
+		</tbody>
+	</td>
+</tr></tbody></tr></tbody></table><a href="{{ path('user_index') }}">Back to players list</a>{% endblock %}
